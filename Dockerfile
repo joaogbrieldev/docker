@@ -1,6 +1,12 @@
 FROM nginx:latest
 
-RUN apt-get update
-RUN apt-get install vim -y
+USER teste
 
-# docker build -t joao/nginx-com-vim:latest
+WORKDIR /app
+
+RUN apt-get update && \ 
+    apt-get install vim -y
+
+COPY html /usr/share/nginx
+
+# docker build -t joaogbrieldev/nginx-com-vim:latest .
